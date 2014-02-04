@@ -1,0 +1,4 @@
+require 'autotest/bundler'
+require 'autotest/inotify'
+require 'autotest/growl'
+require 'autotest/timestamp'
