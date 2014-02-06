@@ -1,4 +1,6 @@
-require 'autotest/bundler'
+# Find some usefull tips to configure at
+# http://ph7spot.com/musings/getting-started-with-autotest
+
+require 'autotest/timestamp'
 require 'autotest/inotify'
 require 'autotest/growl'
-require 'autotest/timestamp'
