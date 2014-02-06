@@ -1,10 +1,23 @@
 require 'spec_helper'
 
 describe "Yet annother Sinatra Application" do
-  describe "#backwards" do
-    it "reverses given string" do
-      a = 'Hello'
-      expect( backwards 'Hello' ).to eq 'olleH'
+  describe "helpers" do
+#   subject do
+#     Class.new { include YasappHelpers }
+#   end
+
+    describe "#backwards" do
+      it "reverses given string" do
+        expect(backwards 'Hello').to eq 'olleH'
+      end
+    end
+
+    describe "#human" do
+      it "formats date and time readable" do
+        t = Time.new(2014,02,06,14,18,33)
+
+        expect(human_date t).to eq '6. February 2014, 14:18 Uhr'
+      end
     end
   end
 
@@ -25,10 +38,10 @@ describe "Yet annother Sinatra Application" do
     end
 
     it "shows current time" do
-      Time.stub(:now).and_return('2014-02-06 14:08:31')
+      Time.stub(:now).and_return(Time.new 2014,02,06,14,18,33)
 
       get '/'
-      expect(last_response.body).to match '14:08'
+      expect(last_response.body).to match '14:18'
     end
   end
 

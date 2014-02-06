@@ -2,12 +2,18 @@ require 'sinatra'
 require 'sinatra/reloader' if development?
 require 'haml'
 
-  def backwards string
+#helpers do
+  def backwards(string)
     string.reverse
   end
 
+  def human_date(datetime)
+    datetime.strftime('%-d. %B %Y, %H:%M Uhr')
+  end
+#end
+
 before do
-  @current_date = Time.now.to_s
+  @current_date = human_date(Time.now)
 end
 
 get '/' do
