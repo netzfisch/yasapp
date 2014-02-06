@@ -1,5 +1,11 @@
-%h1 Introduction to Sinatra Course by RubyLearning
-%p The first and only Free Sinatra course on the planet!!
-- foo = "The current time is: "
-- foo << Time.now.to_s
-%p= foo
+%h1 Welcome to "Yet annother Sinatra template Application" (YaSApp)!
+%p= "The current date and time is: " + @current_date
+%hr
+
+%h1 String Reverse Service
+%p
+  This form accepts a string and returns it reversed. Have fun!
+  %form{ action: "/reverse", method: "post" }
+    %input#str{ name: "str", type: "text", value: "Type a string ..." }/
+    %input{ type: "submit", value: "... and reverse it!" }/
+%hr
