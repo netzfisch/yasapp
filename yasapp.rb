@@ -2,11 +2,9 @@ require 'sinatra'
 require 'sinatra/reloader' if development?
 require 'haml'
 
-helpers do
   def backwards string
     string.reverse
   end
-end
 
 before do
   @current_date = Time.now.to_s

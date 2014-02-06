@@ -1,6 +1,13 @@
 require 'spec_helper'
 
 describe "Yet annother Sinatra Application" do
+  describe "#backwards" do
+    it "reverses given string" do
+      a = 'Hello'
+      expect( backwards 'Hello' ).to eq 'olleH'
+    end
+  end
+
   describe "GET show '/'" do
     it "allows home page access" do
       get '/'
