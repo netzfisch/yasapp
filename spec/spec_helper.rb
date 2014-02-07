@@ -5,17 +5,15 @@
 #
 # See http://rubydoc.info/gems/rspec-core/RSpec/Core/Configuration
 
+ENV['RACK_ENV'] = 'test' #set :environment, :test
 require 'rack/test'
-require File.expand_path '../../yasapp.rb', __FILE__
 
-set :environment, :test
+require File.expand_path '../../yasapp.rb', __FILE__
 
 module RSpecMixin
   include Rack::Test::Methods
 
-  def app
-    Sinatra::Application
-  end
+  def app() Sinatra::Application end
 end
 
 RSpec.configure do |config|
