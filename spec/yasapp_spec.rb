@@ -37,7 +37,7 @@ describe "Yet annother Sinatra Application" do
       expect(last_response.body).to match 'Welcome to "Yet'
     end
 
-    it "shows current time" do
+    it "formats current date time" do
       Time.stub(:now).and_return(Time.new 2014,02,06,14,18,33)
 
       get '/'
@@ -45,9 +45,21 @@ describe "Yet annother Sinatra Application" do
     end
   end
 
+  describe "GET show '/pass'" do
+    it "allows access" do
+      get '/pass', params = { password: 'doe' }
+      expect(last_response.body).to match 'Got your submitted data:'
+    end
+
+    it "denies access" do
+      get '/pass', { password: 'wrong-one' }
+      expect(last_response.body).to match 'Sorry, NOT PASSING'
+    end
+  end
+
   describe "POST create '/reverse'" do
     it "reverses value from html form" do
-      post '/reverse', params = {:str => 'Hello'}
+      post '/reverse', { str: 'Hello' }
       expect(last_response.body).to match 'olleH'
     end
 

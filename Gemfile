@@ -3,6 +3,7 @@ ruby '1.9.3'
 
 gem 'sinatra'
 gem 'haml'
+gem 'slim'
 
 group :development, :test do
   gem 'sinatra-contrib'     # provides sinatra/reloader

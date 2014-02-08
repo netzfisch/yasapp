@@ -1,5 +1,14 @@
 %h1 Welcome to "Yet annother Sinatra template Application" (YaSApp)!
-%p= "The current date and time is: " + @current_date
+%p= "The well formed current date time is: " + @current_date
+%hr
+
+%h1 Simple Pass Filter
+%p
+  Click these prepared links and see, if you are 
+  %a{href: "/pass?user=john&password=doe&ip=185.326.103.136"} passing
+  OR
+  %a{href: "/pass?user=john&password=wrong-one&ip=185.326.103.136"} not passing
+  ?
 %hr
 
 %h1 String Reverse Service
