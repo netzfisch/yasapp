@@ -36,7 +36,7 @@ end
 
 post '/reverse' do
   @reverse_value = backwards params[:str]
-  haml :show
+  haml :reverse
 end
 
 # will not work in browser, needs to be triggered via
