@@ -21,8 +21,15 @@ describe "Yet annother Sinatra Application" do
     end
   end
 
+# describe "Before Filter", focus: true do
+#   it "assings @current_date" do
+#     get '/'
+#     expect(assign :current_date).not_to be nil
+#   end
+# end
+
   describe "GET show '/'" do
-    it "allows home page access" do
+    it "allows page access" do
       get '/'
       expect(last_response).to be_ok
     end
@@ -66,6 +73,33 @@ describe "Yet annother Sinatra Application" do
     it "reverses value from http request" do
       post '/reverse/Hello'
       expect(last_response.body).to eq 'olleH'
+    end
+  end
+
+  describe "POST create '/quote'", focus: true do
+    it "allows page access" do
+      post '/quote', { symbol: 'goog' }
+      expect(last_response).to be_ok
+    end
+
+    it "renders the 'quote' template" do
+      post '/quote', { symbol: 'goog' }
+      expect(last_response).to render_template 'quote'
+    end
+
+    it "assigns the requested stock as @symbol" do
+      post '/quote', { symbol: 'goog' }
+      expect(assigns :symbol).not_to be nil
+    end
+
+    it "shows stock name" do
+      post '/quote', { symbol: 'goog' }
+      expect(last_response.body).to match 'GOOG'
+    end
+
+    it "shows stock price" do
+      post '/quote', { symbol: 'GOOG' }
+      expect(last_response.body).to match 'USD'
     end
   end
 end

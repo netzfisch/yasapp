@@ -1,0 +1,12 @@
+h1 Stock Quote Service
+h3 The follwing share price derived from #{@stock.row3} on #{@stock.row2}
+p
+  b
+    = @stock.row0
+    | 's 
+  | last trade was: USD #{@stock.row1} (change of #{@stock.row4}%)
+p Opened at $#{@stock.row5} with a day range of $#{@stock.row7} - $#{@stock.row6}
+p
+  | Click 
+  a href="/" here
+  |  to go back!

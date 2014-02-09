@@ -18,3 +18,11 @@
     %input#str{ name: "str", type: "text", value: "Type a string ..." }/
     %input{ type: "submit", value: "... and reverse it!" }/
 %hr
+
+%h1 Stock Quote Retrieval
+%p
+  This form accepts a stock symbol (e.g. AMZ, APC, GOOG ...) and returns the current quote!
+  %form{ action: "/quote", method: "post" }
+    %input#str{ name: "symbol", type: "text", value: "GOOG" }
+    %input{ type: "submit", value: "Fetch the quote!" }
+%hr
