@@ -26,3 +26,12 @@
     %input#str{ name: "symbol", type: "text", value: "GOOG" }
     %input{ type: "submit", value: "Fetch the quote!" }
 %hr
+
+%h1 Add Participant to List
+%p
+  Enter the name and email of new participant.
+  %form{ action: "/participants", method: "post" }
+    %input#name{ name: "name", type: "text", value: "Name" }
+    %input#email{ name: "email", type: "text", value: "Email" }
+    %input{ type: "submit", value: "Add the record!" }
+%hr

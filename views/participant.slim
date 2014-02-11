@@ -1,0 +1,19 @@
+h1 Participants
+h3 New
+p
+  = @participant.name
+  | : #{@participant.email}
+h3 All
+table
+  thead
+    tr
+      th Name
+      th Email
+  tbody
+  - @participants.each do |participant|
+    tr
+      td.name = participant.name
+      td.email = participant.email
+p
+  a href="/" Add
+  |  more participants!

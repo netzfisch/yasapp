@@ -82,4 +82,12 @@ describe "Yet annother Sinatra Application" do
       expect(last_response.body).to match 'USD'
     end
   end
+
+  describe "POST create '/participants'" do
+    pending
+  end
+
+  describe "GET show '/participants/:id'" do
+    pending
+  end
 end

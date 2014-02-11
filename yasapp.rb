@@ -2,6 +2,7 @@ require 'sinatra'
 require 'sinatra/reloader' if development?
 require './helpers'
 require './lib/stock'
+require './models/participant'
 require 'haml'
 require 'slim'
 
@@ -33,4 +34,26 @@ end
 post '/quote' do
   @stock = Stock.new params[:symbol]
   slim :quote
+end
+
+# save participant's details
+post '/participants' do
+  begin
+    @participant = Participant.new(name: params[:name], email: params[:email])
+    @participant.save
+    redirect "/participants/#{@participant.id}"
+  rescue
+    redirect '/'
+  end
+end
+
+# display participant's details
+get '/participants/:id' do
+  begin
+    @participant = Participant.find(params[:id])
+    @participants = Participant.find(:all)
+    slim :participant
+  rescue
+    redirect '/'
+  end
 end
