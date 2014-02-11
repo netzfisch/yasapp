@@ -6,27 +6,29 @@ Course][1] - 12th batch at [RubyLearning][2].
 
 ## Features
 
-Use YaSApp as your **Sinatra Template Application** with following basic
+Use YaSApp as your **Sinatra Template Application** with following simple
+components
 implementations:
 
-#### Basics
+* Before filter and helpers
+* Handlers and form parameters
+* Simple model with CRUD actions
+* Haml and slim views
+* RSpec test suit
 
-* routes
-* before filter
-* set method, to assign variables
+Just change or remove not used functionality and extend according to your needs.
+See it momentarily live deployed at heroku under [YaSApp][3].
 
-#### ToDo's (not implemented yet)
+##### ToDo's (not implemented yet)
 
-* Mapping of URLs with parameters to functions
-* Views with layouts, e.g. responsive - based on thoughtbot/neat
-* Authentication
-* DB mapping
-
-Just cut not used functionality out and/or extend according to your needs.
+* heroku postgres mapping
+* Error handling
+* RACK::AUTH::BASIC Authentication
+* Responsive views based on thoughtbot/neat
 
 # Developemnt
 
-Install [heroku toolbelt][8], do `$ foreman start` and go to [loaclhost:5000][9].
+Install [heroku toolbelt][8], do `$ foreman start` and go to [localhost:5000][9].
 
 # Testing
 
@@ -43,14 +45,12 @@ Further hints are available via [autotest-inotify][6] (hard disk and CPU friendl
 Clone, bundle install, commit and push to heroku:
 
     $ git clone git@github.com:netzfisch/yasapp.git
-    $ bundle install 
-    $ git init 
-    $ git add . 
-    $ git commit -m “commit Sinatra Template App” 
+    $ bundle install # '--without production' for local deployments!
+    $ git init
+    $ git add .
+    $ git commit -m “commit Sinatra Template App”
     $ heroku create sinatra-template-app
-    $ git push heroku master 
-
-Momentarily live deployed at heroku under [YaSApp][3].
+    $ git push heroku master
 
 [1]: http://rubylearning.com/blog/2013/12/28/a-free-online-course-on-sinatra-12th-batch/
 [2]: http://rubylearning.com/
