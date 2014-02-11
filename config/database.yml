@@ -7,5 +7,5 @@ test:
   database: db/test.sqlite3
 
 production:
-  adapter: postgresql
+  adapter: pg
   database: production
