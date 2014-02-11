@@ -62,16 +62,6 @@ describe "Yet annother Sinatra Application" do
       expect(last_response).to be_ok
     end
 
-#   it "renders the 'quote' template" do
-#     post '/quote', { symbol: 'goog' }
-#     expect(last_response).to render_template 'quote'
-#   end
-
-#   it "assigns the requested stock as @symbol" do
-#     post '/quote', { symbol: 'goog' }
-#     expect(assigns :symbol).not_to be nil
-#   end
-
     it "shows stock name" do
       post '/quote', { symbol: 'goog' }
       expect(last_response.body).to match 'GOOG'
